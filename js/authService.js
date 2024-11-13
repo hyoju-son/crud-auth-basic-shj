@@ -69,13 +69,13 @@ export const signIn = async (
   } catch (error) {
     messageElement.style.color = "red";
     messageElement.textContent = "로그인에 실패하였습니다! 다시 시도해주세요!";
-    console.log("로그인 오류");
+    console.log("로그인 오류", error);
     return false; // 인증되지 않은 사용자
   }
 };
 
 // 구글 로그인 함수
-export const googleSignIn = async () => {
+export const googleSignIn = async (messageElement) => {
   try {
     await signInWithPopup(auth, googleProvider);
   } catch (error) {
